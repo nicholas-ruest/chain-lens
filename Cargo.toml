@@ -1,0 +1,25 @@
+[package]
+name = "chain-lens"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "Rank-normalized R-hat and effective sample size diagnostics for JSONL chains"
+license = "MIT"
+repository = "https://github.com/nicholas-ruest/chain-lens"
+readme = "README.md"
+keywords = ["mcmc", "diagnostics", "statistics", "rhat", "ess"]
+categories = ["command-line-utilities", "science"]
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+statrs = "0.18"
+thiserror = "2.0"
+
+[dev-dependencies]
+tempfile = "3.20"
+
+[profile.release]
+lto = "thin"
+strip = "symbols"
